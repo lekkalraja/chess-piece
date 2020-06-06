@@ -21,5 +21,11 @@ public class ChessPieceImplTest {
         assertTrue(chessPiece.canMove("Rook", "A8", "H8"));
         assertTrue(chessPiece.canMove("Bishop", "A7", "G1"));
         assertFalse(chessPiece.canMove("Rook", "C4", "D6"));
+        assertFalse(chessPiece.canMove("King", "C8", "C9"));
+        assertTrue(chessPiece.canMove("Queen", "A7", "G1"));
+        assertTrue(chessPiece.canMove("Queen", "A8", "H8"));
+        assertFalse(chessPiece.canMove("Queen", "C2", "D6"));
+
+
     }
 }

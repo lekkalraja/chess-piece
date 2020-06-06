@@ -22,12 +22,16 @@ public class Queen extends Piece {
 		}
 
 		//This is the bishop move.
-		int diffX = Math.abs(initPos.getPositionX() - finalPos.getPositionX());
+		var bishop = new Bishop(this.getPlayer());
+		if(bishop.isValidMove(initPos, finalPos)) return true;
+		/*int diffX = Math.abs(initPos.getPositionX() - finalPos.getPositionX());
 		int diffY = Math.abs(initPos.getPositionY() - finalPos.getPositionY());
-		if (diffX == diffY) return true;
+		if (diffX == diffY) return true;*/
 
 		//This is the rook move.
-		return (initPos.getPositionX() == finalPos.getPositionX() ||
-				initPos.getPositionY() == finalPos.getPositionY());
+		var rook = new Rook(this.getPlayer());
+		return rook.isValidMove(initPos, finalPos);
+		/*return (initPos.getPositionX() == finalPos.getPositionX() ||
+				initPos.getPositionY() == finalPos.getPositionY());*/
 	}
 }

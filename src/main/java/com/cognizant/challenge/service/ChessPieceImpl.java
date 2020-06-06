@@ -1,7 +1,6 @@
 package com.cognizant.challenge.service;
 
 import com.cognizant.challenge.pieces.*;
-import com.cognizant.challenge.player.Player;
 import com.cognizant.challenge.player.PlayerType;
 import com.cognizant.challenge.utils.Coordinate;
 import org.springframework.stereotype.Service;
@@ -14,6 +13,9 @@ public class ChessPieceImpl implements ChessPiece {
         Piece piece = null;
         var initCoordination = getCoordinate(initPos);
         var destCoordination = getCoordinate(finalPos);
+        if(!(initCoordination.isItValidCoordination() && destCoordination.isItValidCoordination())){
+            return false;
+        }
         PlayerType playerType = PlayerType.WHITE;
         switch (PieceType.valueOf(pieceType.toUpperCase())) {
             case BISHOP: piece = new Bishop(playerType); break;
